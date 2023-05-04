@@ -1,20 +1,4 @@
 <div class="container">
-  
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Café da Manhã</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="date" placeholder="date" aria-label="date">
-            <button class="btn btn-outline-success" type="submit">+</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-  
     <table class="table">
       <thead>
         <tr>
@@ -26,8 +10,8 @@
       </thead>
       <tbody>
         <tr>
-          <td>22/05/2023</td>
-          <td>15</td>
+          <td (click)="goBrekker()">22/05/2023</td>
+          <td (click)="goBrekker()">15</td>
           <td class="td-action">
             <input type="checkbox" id="scales" name="scales">
             <button class="btn btn-icon"><i class="bi bi-pencil-square"></i></button>
@@ -36,47 +20,28 @@
         </tr>
         
         <tr>
-          <td>28/05/2023</td>
-          <td>25</td>
-          <td><input type="checkbox" id="scales" name="scales"></td>
+          <td (click)="goBrekker()">28/05/2023</td>
+          <td (click)="goBrekker()">25</td>
+          <td class="td-action">
+            <input type="checkbox" id="scales" name="scales">
+            <button class="btn btn-icon"><i class="bi bi-pencil-square"></i></button>
+            <button class="btn btn-icon"><i class="bi bi-trash3-fill"></i></button>
+          </td>
         </tr>
         <tr>
           <td>30/05/2023</td>
           <td>2</td>
-          <td><input type="checkbox" id="scales" name="scales"></td>
+          <td class="td-action">
+            <input type="checkbox" id="scales" name="scales">
+            <button class="btn btn-icon"><i class="bi bi-pencil-square"></i></button>
+            <button class="btn btn-icon"><i class="bi bi-trash3-fill"></i></button>
+          </td>
         </tr>
       </tbody>
     </table>
+    <button class="btn">Ver mais</button>
   </div>
   
+
   
-  
-  <!-- <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Nome</th>
-        <th scope="col">CPF</th>
-        <th scope="col">Contribuição</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Mark</td>
-        <td>123.456.789-00</td>
-        <td>Suco de Acerola</td>
-        <input type="checkbox" id="scales" name="scales">
-      </tr>
-      <tr>
-        <td>Otto</td>
-        <td>789.156.789-00</td>
-        <td>Sanduiche</td>
-        <input type="checkbox" id="scales" name="scales">
-      </tr>
-      <tr>
-        <td>Larry the Bird</td>
-        <td>852.456.789-01</td>
-        <td>Bolo</td>
-        <input type="checkbox" id="scales" name="scales">
-      </tr>
-    </tbody>
-  </table> -->
+ 

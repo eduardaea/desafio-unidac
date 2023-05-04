@@ -6,6 +6,11 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./components/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'cafe',
+    loadChildren: () =>
+      import('./components/brekker/brekker.module').then((m) => m.BrekkerModule),
   }
 ];
 

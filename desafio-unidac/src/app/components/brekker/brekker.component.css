@@ -32,6 +32,3 @@ input[type=checkbox] {
 .btn-icon, .chb-icon{
     margin-right: 5px;
 }
-td{
-    cursor: pointer;
-}
