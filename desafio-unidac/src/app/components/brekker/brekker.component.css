@@ -32,3 +32,21 @@ input[type=checkbox] {
 .btn-icon, .chb-icon{
     margin-right: 5px;
 }
+.add-row{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.toggleMenu{
+    color: rgb(214, 213, 213);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.dropdown-toggle{
+    margin-top: 20px;
+}

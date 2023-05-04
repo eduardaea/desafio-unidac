@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class BrekkerComponent {
 
+  visibleItem:boolean = false;
+  visibleRegister:boolean = false;
+
+  toggleMenu(){
+    this.visibleItem = !this.visibleItem
+    this.visibleRegister = false
+  }
+  newRegister(){
+    this.visibleItem = false
+    this.visibleRegister = true
+
+  }
 }

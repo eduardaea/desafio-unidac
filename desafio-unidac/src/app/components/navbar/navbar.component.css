@@ -1,0 +1,10 @@
+.form-items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.font-item{
+    font-weight: bold;
+}
