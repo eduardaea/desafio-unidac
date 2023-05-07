@@ -1,0 +1,8 @@
+com\desafio\unidac\service\user\UserService.class
+com\desafio\unidac\service\user\UserServiceImpl.class
+com\desafio\unidac\DTO\CreateUserDTO.class
+com\desafio\unidac\repositories\UserRepository.class
+com\desafio\unidac\entities\User.class
+com\desafio\unidac\controller\UserController.class
+com\desafio\unidac\entities\Breakfast.class
+com\desafio\unidac\UnidacApplication.class
