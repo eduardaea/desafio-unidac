@@ -34,4 +34,9 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long userId) {
         userRepository.deleteUserById(userId);
     }
+
+    @Override
+    public void updateUser(CreateUserDTO userDTO, Long userId){
+        userRepository.updateUser(userDTO.getCpf(), userDTO.getNome(), userId);
+    }
 }

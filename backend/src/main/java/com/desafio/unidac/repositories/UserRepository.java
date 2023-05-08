@@ -22,17 +22,22 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "insert into User (nome, cpf) values (:nome, :cpf)",
+    @Query(value = "INSERT INTO User (nome, cpf) VALUES (:nome, :cpf)",
     nativeQuery = true)
     void insertUser(@Param("nome") String nome, @Param("cpf") String cpf);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM User user where user.id =:userId", nativeQuery = true)
+    @Query(value = "DELETE FROM User user WHERE user.id =:userId", nativeQuery = true)
     void deleteUserById(@Param("userId") Long userId);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM User user where user.cpf = :cpf", nativeQuery = true)
+    @Query(value = "DELETE FROM User user WHERE user.cpf = :cpf", nativeQuery = true)
     void deleteUserByCpf(@Param("cpf") String cpf);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE user SET cpf = :cpf, nome = :nome WHERE id = :userId", nativeQuery = true)
+    void updateUser(@Param("cpf") String cpf, @Param("nome") String nome, @Param("userId") Long userId);
 }
