@@ -21,7 +21,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO User (nome, cpf) VALUES (:nome, :cpf)",
+    @Query(value = "INSERT INTO user (nome, cpf) VALUES (:nome, :cpf)",
     nativeQuery = true)
     void insertUser(@Param("nome") String nome, @Param("cpf") String cpf);
 

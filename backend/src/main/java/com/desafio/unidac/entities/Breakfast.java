@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
@@ -25,5 +27,6 @@ public class Breakfast {
 
     @Column(name = "data")
     @NotNull
+    @Temporal(TemporalType.DATE)
     private Date data;
 }

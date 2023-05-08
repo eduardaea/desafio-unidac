@@ -14,17 +14,17 @@ import com.desafio.unidac.entities.Breakfast;
 
 public interface BreakfastRepository extends JpaRepository<Breakfast, Long> {
 
-    @Query(value = "SELECT * FROM Breakfast", nativeQuery = true)
+    @Query(value = "SELECT * FROM breakfast", nativeQuery = true)
     List<Breakfast> getAllBreakfasts();
 
     @Modifying
     @Transactional
-    @Query(value="INSERT INTO Breakfast (data) VALUES (:data)",nativeQuery = true)
-    Breakfast createBreakfast(@Param("data")Date data);
+    @Query(value="INSERT INTO breakfast (data) VALUES (:data)",nativeQuery = true)
+    void createBreakfast(@Param("data") Date data);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM Breakfast breakfast WHERE breakfast.id = :id", nativeQuery = true)
+    @Query(value = "DELETE FROM breakfast brk WHERE brk.id = :id", nativeQuery = true)
     void deleteBreakfastById(@Param("id") Long id);
 
 }

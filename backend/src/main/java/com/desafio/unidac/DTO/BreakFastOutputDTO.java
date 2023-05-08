@@ -1,6 +1,5 @@
 package com.desafio.unidac.DTO;
 
-import java.util.Date;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,6 +8,6 @@ import lombok.Setter;
 @Setter
 public class BreakFastOutputDTO {
     private Long id;
-    private Date data;
+    private String data;
     private List<UserFoodDTO> usersFoods;
 }

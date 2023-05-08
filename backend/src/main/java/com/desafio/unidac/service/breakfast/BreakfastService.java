@@ -7,7 +7,7 @@ import com.desafio.unidac.DTO.CreateBreakFastDTO;
 import com.desafio.unidac.entities.Breakfast;
 
 public interface BreakfastService {
-    List<Breakfast> getBreakfasts();
+    List<BreakFastOutputDTO> getBreakfasts();
     BreakFastOutputDTO getBreakfast(Long breakfastId);
     void insertBreakfast(CreateBreakFastDTO breakFastDTO);
     void deleteBreakfast(Long breakFastId);

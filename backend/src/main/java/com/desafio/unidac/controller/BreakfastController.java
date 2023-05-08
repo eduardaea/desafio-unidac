@@ -3,6 +3,7 @@ package com.desafio.unidac.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.desafio.unidac.DTO.BreakFastOutputDTO;
 import com.desafio.unidac.DTO.CreateBreakFastDTO;
-import com.desafio.unidac.entities.Breakfast;
 import com.desafio.unidac.service.breakfast.BreakfastService;
 
 @Controller
@@ -25,7 +25,7 @@ public class BreakfastController {
     private BreakfastService breakfastService;
 
     @GetMapping
-    public ResponseEntity<List<Breakfast>> getBreakFasts() {
+    public ResponseEntity<List<BreakFastOutputDTO>> getBreakFasts() {
         return ResponseEntity.ok(breakfastService.getBreakfasts());
     }
 
@@ -35,12 +35,14 @@ public class BreakfastController {
     }
 
     @PostMapping()
-    public void insertBreakfast(@RequestBody CreateBreakFastDTO breakfastDTO) {
+    public ResponseEntity insertBreakfast(@RequestBody CreateBreakFastDTO breakfastDTO) {
         breakfastService.insertBreakfast(breakfastDTO);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteBreakfast(@PathVariable("id") Long id) {
+    public ResponseEntity deleteBreakfast(@PathVariable("id") Long id) {
         breakfastService.deleteBreakfast(id);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

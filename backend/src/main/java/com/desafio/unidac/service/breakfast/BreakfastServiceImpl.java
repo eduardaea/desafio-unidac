@@ -24,8 +24,19 @@ public class BreakfastServiceImpl implements BreakfastService{
     private BreakFastUserFoodLinkRepository BreakFastUserFoodLinkRepository;
 
     @Override
-    public List<Breakfast> getBreakfasts() {
-        return breakfastRepository.getAllBreakfasts();
+    public List<BreakFastOutputDTO> getBreakfasts() {
+        List<Breakfast> breakfasts = breakfastRepository.getAllBreakfasts();
+        List<BreakFastOutputDTO> breakFastOutputList = new ArrayList<BreakFastOutputDTO>();
+
+        for (Breakfast breakfast: breakfasts) {
+            BreakFastOutputDTO breakFastOutput = new BreakFastOutputDTO();
+            breakFastOutput.setId(breakfast.getId());
+            breakFastOutput.setData(breakfast.getData().toString());
+
+            breakFastOutputList.add(breakFastOutput);
+        }
+
+        return breakFastOutputList;
     }
 
     @Override
@@ -38,7 +49,7 @@ public class BreakfastServiceImpl implements BreakfastService{
         for (BreakFastUserFoodLink breakFastUserFoodLink: breakFastUserFoodLinks) {
             if (breakfast.getData() == null && breakfast.getId() == null) {
                 breakfast.setId(breakFastUserFoodLink.getBreakfast().getId());
-                breakfast.setData(breakFastUserFoodLink.getBreakfast().getData());
+                breakfast.setData(breakFastUserFoodLink.getBreakfast().getData().toString());
             }
 
             UserFoodDTO userFoodDTO = new UserFoodDTO();
@@ -52,7 +63,7 @@ public class BreakfastServiceImpl implements BreakfastService{
 
     @Override
     public void insertBreakfast(CreateBreakFastDTO breakFastDTO) {
-        breakfastRepository.createBreakfast(breakFastDTO.getBreakfastDate());
+        breakfastRepository.createBreakfast(breakFastDTO.getData());
     }
 
     @Override

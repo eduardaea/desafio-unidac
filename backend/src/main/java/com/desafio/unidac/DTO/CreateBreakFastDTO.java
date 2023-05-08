@@ -6,5 +6,5 @@ import lombok.Getter;
 
 @Getter
 public class CreateBreakFastDTO {
-    Date breakfastDate;
+    Date data;
 }
