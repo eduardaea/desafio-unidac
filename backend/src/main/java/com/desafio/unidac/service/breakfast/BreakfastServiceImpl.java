@@ -45,7 +45,7 @@ public class BreakfastServiceImpl implements BreakfastService{
         List<BreakFastUserFoodLink> breakFastUserFoodLinks = BreakFastUserFoodLinkRepository.getBreakFast(breakfastId);
         BreakFastOutputDTO breakfast = new BreakFastOutputDTO();
 
-        breakfast.setUsersFoods(new ArrayList<UserFoodDTO>());
+        breakfast.setParticipants(new ArrayList<UserFoodDTO>());
 
         for (BreakFastUserFoodLink breakFastUserFoodLink: breakFastUserFoodLinks) {
             if (breakfast.getData() == null && breakfast.getId() == null) {
@@ -56,7 +56,7 @@ public class BreakfastServiceImpl implements BreakfastService{
             UserFoodDTO userFoodDTO = new UserFoodDTO();
             userFoodDTO.setFood(breakFastUserFoodLink.getFood());
             userFoodDTO.setUser(breakFastUserFoodLink.getUser());
-            breakfast.getUsersFoods().add(userFoodDTO);
+            breakfast.getParticipants().add(userFoodDTO);
         }
 
         return breakfast;
@@ -64,6 +64,9 @@ public class BreakfastServiceImpl implements BreakfastService{
 
     @Override
     public void insertUserFood(Long breakfastId, InputUserFoodDTO userFoodDto) {
+        System.out.println(breakfastId);
+        System.out.println( userFoodDto.getFoodId());
+        System.out.println( userFoodDto.getUserId());
         BreakFastUserFoodLinkRepository.insertUserFood(breakfastId, userFoodDto.getFoodId(), userFoodDto.getUserId());
         // TODO CRIAR ERROR QUANDO INSERIR MESMA COMIDA
     }

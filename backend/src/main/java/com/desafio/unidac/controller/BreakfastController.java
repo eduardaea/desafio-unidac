@@ -22,7 +22,7 @@ import com.desafio.unidac.service.breakfast.BreakfastService;
 
 @Controller
 @RequestMapping("/breakfast")
-@CrossOrigin(origins = "", allowedHeaders = "")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BreakfastController {
 
     @Autowired

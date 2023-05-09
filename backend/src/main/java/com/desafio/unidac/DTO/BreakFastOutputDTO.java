@@ -9,5 +9,5 @@ import lombok.Setter;
 public class BreakFastOutputDTO {
     private Long id;
     private String data;
-    private List<UserFoodDTO> usersFoods;
+    private List<UserFoodDTO> participants;
 }
