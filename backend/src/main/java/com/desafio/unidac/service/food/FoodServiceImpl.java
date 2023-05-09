@@ -15,7 +15,7 @@ public class FoodServiceImpl implements FoodService {
     private FoodRepository foodRepository;
 
     @Override
-    public List<Food> getAllFoods() {
-        return foodRepository.getFoods();
+    public List<Food> getAllFoods(Long breakfastId) {
+        return foodRepository.getFoods(breakfastId);
     }
 }
