@@ -72,6 +72,11 @@ public class BreakfastServiceImpl implements BreakfastService{
     }
 
     @Override
+    public void updateBreakfast(CreateBreakFastDTO updateBreakfast, long id) {
+        breakfastRepository.updateBreakfast(updateBreakfast.getData(), id);
+    }
+
+    @Override
     public void insertBreakfast(CreateBreakFastDTO breakFastDTO) {
         breakfastRepository.createBreakfast(breakFastDTO.getData());
     }

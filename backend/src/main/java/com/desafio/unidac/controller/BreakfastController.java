@@ -50,6 +50,12 @@ public class BreakfastController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity updateBreakfast(@RequestBody CreateBreakFastDTO updateBreakfast, @PathVariable("id") Long breakfastId) {
+        breakfastService.updateBreakfast(updateBreakfast, breakfastId);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deleteBreakfast(@PathVariable("id") Long id) {
         breakfastService.deleteBreakfast(id);

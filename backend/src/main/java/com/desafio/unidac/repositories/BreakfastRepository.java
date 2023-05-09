@@ -27,4 +27,8 @@ public interface BreakfastRepository extends JpaRepository<Breakfast, Long> {
     @Query(value = "DELETE FROM breakfast brk WHERE brk.id = :id", nativeQuery = true)
     void deleteBreakfastById(@Param("id") Long id);
 
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE breakfast SET data = :data WHERE id = :breakfastId", nativeQuery = true)
+    void updateBreakfast(@Param("data") Date data, @Param("breakfastId") long id);
 }
