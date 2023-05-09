@@ -13,10 +13,10 @@ import com.desafio.unidac.entities.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    @Query(value = "SELECT * FROM User user WHERE user.id = :userId", nativeQuery = true)
+    @Query(value = "SELECT * FROM user usr WHERE usr.id = :userId", nativeQuery = true)
     User getUser(@Param("userId") Long userId);
 
-    @Query(value = "SELECT * FROM User", nativeQuery = true)
+    @Query(value = "SELECT * FROM user", nativeQuery = true)
     List<User> getAllUsers();
 
     @Modifying
@@ -27,12 +27,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM User user WHERE user.id =:userId", nativeQuery = true)
+    @Query(value = "DELETE FROM user user WHERE user.id =:userId", nativeQuery = true)
     void deleteUserById(@Param("userId") Long userId);
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM User user WHERE user.cpf = :cpf", nativeQuery = true)
+    @Query(value = "DELETE FROM user user WHERE user.cpf = :cpf", nativeQuery = true)
     void deleteUserByCpf(@Param("cpf") String cpf);
 
     @Modifying
