@@ -8,6 +8,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { CreateUserFood } from 'src/app/shared/model/CreateUserFood';
 import { Brekker } from 'src/app/shared/model/Brekker';
+import { ErrorAlertService } from '../error-alert/error-alert.service';
 
 
 @Component({
@@ -38,7 +39,8 @@ export class BrekkerComponent implements OnInit {
     private userService: UserService,
     private foodService: FoodsService,
     private brekkerService: BrekkerService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private errorAlert: ErrorAlertService
   ){ }
 
   ngOnInit(): void {
@@ -86,6 +88,9 @@ export class BrekkerComponent implements OnInit {
         this.visibleRegister = false;
           this.user.nome=""
           this.user.cpf=""
+      },
+      (error) => {
+        console.log(error);
       })
   }
 

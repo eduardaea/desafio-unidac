@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { BrekkerModule } from './components/brekker/brekker.module';
 import { NavBarModule } from './components/navbar/navbar.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorAlertModule } from './components/error-alert/error-alert.module';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrekkerModule,
     RouterModule,
     NavBarModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    ErrorAlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]

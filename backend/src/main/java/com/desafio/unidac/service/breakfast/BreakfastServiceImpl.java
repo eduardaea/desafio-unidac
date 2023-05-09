@@ -63,12 +63,12 @@ public class BreakfastServiceImpl implements BreakfastService{
     }
 
     @Override
-    public void insertUserFood(Long breakfastId, InputUserFoodDTO userFoodDto) {
-        System.out.println(breakfastId);
-        System.out.println( userFoodDto.getFoodId());
-        System.out.println( userFoodDto.getUserId());
-        BreakFastUserFoodLinkRepository.insertUserFood(breakfastId, userFoodDto.getFoodId(), userFoodDto.getUserId());
-        // TODO CRIAR ERROR QUANDO INSERIR MESMA COMIDA
+    public void insertUserFood(Long breakfastId, InputUserFoodDTO userFoodDto) throws Exception {
+        int inserted = BreakFastUserFoodLinkRepository.insertUserFood(breakfastId, userFoodDto.getFoodId(), userFoodDto.getUserId());
+
+        if (inserted == 0) {
+            throw new Exception("Essa comida já foi escolhida");
+        }
     }
 
     @Override
