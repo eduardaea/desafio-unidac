@@ -29,4 +29,16 @@ public interface BreakFastUserFoodLinkRepository extends JpaRepository<BreakFast
         "WHERE NOT EXISTS (SELECT 1 FROM breakfastuserfoodlink bfuf WHERE bfuf.food_id = :foodId AND bfuf.breakfast_id = :breakfastId)"
         , nativeQuery = true)
     int insertUserFood(@Param("breakfastId") Long breakfastId, @Param("foodId") Long foodId, @Param("userId") Long userId);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM breakfastuserfoodlink bfuf WHERE bfuf.breakfast_id = :breakfastId"
+        , nativeQuery = true)
+    int deleteBreakfast(@Param("breakfastId") Long breakfastId);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM breakfastuserfoodlink bfuf WHERE bfuf.user_id = :userId"
+        , nativeQuery = true)
+    int deleteBreakfastByUser(@Param("userId") Long userId);
 }

@@ -83,6 +83,7 @@ public class BreakfastServiceImpl implements BreakfastService{
 
     @Override
     public void deleteBreakfast(Long breakFastId) {
+        BreakFastUserFoodLinkRepository.deleteBreakfast(breakFastId);
         breakfastRepository.deleteBreakfastById(breakFastId);
     }
 }

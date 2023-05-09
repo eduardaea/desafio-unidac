@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 import com.desafio.unidac.DTO.CreateUserDTO;
 import com.desafio.unidac.entities.User;
 import com.desafio.unidac.repositories.UserRepository;
+import com.desafio.unidac.repositories.BreakFastUserFoodLinkRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private BreakFastUserFoodLinkRepository BreakFastUserFoodLinkRepository;
 
     @Override
     public List<User> getUsers() {
@@ -32,6 +36,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(Long userId) {
+        BreakFastUserFoodLinkRepository.deleteBreakfastByUser(userId);
         userRepository.deleteUserById(userId);
     }
 
