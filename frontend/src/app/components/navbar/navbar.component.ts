@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BrekkerService } from 'src/app/shared/services/brekker.service';
-import { BrekkerModule } from '../brekker/brekker.module';
+import { DadosManipulator } from 'src/app/shared/utils/dadosManipulator';
 
 @Component({
   selector: 'app-navbar',
@@ -9,18 +9,21 @@ import { BrekkerModule } from '../brekker/brekker.module';
 })
 export class NavbarComponent {
 
-
+  minDate:string
   data: Date; 
 
-  constructor(private brekkerService: BrekkerService,
-    private brekker: BrekkerModule){}
+  constructor(private brekkerService: BrekkerService
+    ){
+      this.minDate = DadosManipulator.actualData()
+    }
   
   createBrekker(){
     let brekker = {data:this.data}
-    console.log("Entrou")
-    return this.brekkerService.postBrekker(brekker).subscribe(
+    this.brekkerService.postBrekker(brekker).subscribe(
       (reponse)=>{
-        console.log(reponse)
+        window.location.reload()
     })
   }
 }
+
+

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Food } from 'src/app/shared/model/Food';
 import { User } from 'src/app/shared/model/User';
-import { UserFood } from 'src/app/shared/model/UserFood';
 import { BrekkerService } from 'src/app/shared/services/brekker.service';
 import { FoodsService } from 'src/app/shared/services/food.service';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -28,7 +27,6 @@ export class BrekkerComponent implements OnInit {
     foodId: 0
   };
   selectUser= 'Selecionar'
-
   allFoods: Food[] = []
   selectFood = 'Alimento'
   breakfastId: number;
@@ -120,6 +118,3 @@ export class BrekkerComponent implements OnInit {
     this.newParticipant.foodId = Number(food.id);
   }
 }
-
-// private Long userId;
-// private Long foodId;

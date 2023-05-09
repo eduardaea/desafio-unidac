@@ -50,3 +50,9 @@ input[type=checkbox] {
 .dropdown-toggle{
     margin-top: 20px;
 }
+
+.dropdown-scroll{
+    max-height: 200px;
+    overflow-y: auto;
+    
+}

@@ -27,7 +27,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <input class="form-control me-2" type="date" aria-label="date" placeholder="dd/mm/aaaa" [(ngModel)]="editDate">
+          <input class="form-control me-2" type="date" aria-label="date" placeholder="dd/mm/aaaa" [min]="minDate" [(ngModel)]="editDate">
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
           <button type="button" class="btn btn-primary" (click)="editBrekker()" data-bs-dismiss="modal">Salvar</button>

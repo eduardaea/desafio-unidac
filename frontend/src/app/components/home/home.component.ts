@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Brekker } from 'src/app/shared/model/Brekker';
 import { BrekkerService } from 'src/app/shared/services/brekker.service';
+import { DadosManipulator } from 'src/app/shared/utils/dadosManipulator';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,12 @@ export class HomeComponent implements OnInit{
   allBrekker: Brekker[] = [] 
   recentBrekker: Brekker;
   editDate: Date;
+  minDate: string
 
   constructor(private route: Router,
-    private brekkerService: BrekkerService){}
+    private brekkerService: BrekkerService){
+      this.minDate = DadosManipulator.actualData()
+    }
   
   ngOnInit(): void {
    this.listBrekker();
