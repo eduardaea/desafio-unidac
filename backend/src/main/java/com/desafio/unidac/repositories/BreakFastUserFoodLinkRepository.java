@@ -16,9 +16,9 @@ import org.springframework.data.jpa.repository.Modifying;
 public interface BreakFastUserFoodLinkRepository extends JpaRepository<BreakFastUserFoodLink, Long> {
     
     @Query(value = "SELECT * FROM breakfastuserfoodlink bfuf " +
-        "INNER JOIN Breakfast bk ON bfuf.breakfast_id = bk.id " +
-        "INNER JOIN User usr ON usr.id = bfuf.user_id "+
-        "INNER JOIN Food fd ON fd.id = bfuf.food_id "+
+        "INNER JOIN breakfast bk ON bfuf.breakfast_id = bk.id " +
+        "INNER JOIN user usr ON usr.id = bfuf.user_id "+
+        "INNER JOIN food fd ON fd.id = bfuf.food_id "+
         "WHERE bk.id =:breakfastId ", nativeQuery = true)
     List<BreakFastUserFoodLink> getBreakFast(@Param("breakfastId") Long breakfastId);
 
