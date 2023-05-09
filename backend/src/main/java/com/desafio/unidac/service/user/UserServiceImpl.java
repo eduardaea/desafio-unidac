@@ -2,6 +2,9 @@ package com.desafio.unidac.service.user;
 
 import java.util.List;
 
+import javax.persistence.PersistenceException;
+import javax.persistence.RollbackException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,9 +34,10 @@ public class UserServiceImpl implements UserService {
     
     @Override
     public void insertUser(CreateUserDTO userDTO) throws Exception {
-        int inserted = userRepository.insertUser(userDTO.getNome(), userDTO.getCpf());
-
-        if (inserted == 0) {
+        try {
+            userRepository.insertUser(userDTO.getNome(), userDTO.getCpf());
+        } catch (Exception error) {
+            System.out.println("ENTROU");
             throw new Exception("Já existe um usuário com esse cpf");
         }
     }

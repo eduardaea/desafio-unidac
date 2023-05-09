@@ -90,7 +90,7 @@ export class BrekkerComponent implements OnInit {
           this.user.cpf=""
       },
       (error) => {
-        console.log(error);
+        this.errorAlert.setErrorMessage(error.error);
       })
   }
 
@@ -102,7 +102,9 @@ export class BrekkerComponent implements OnInit {
         this.selectUser="Selecionar"
         this.selectFood="Alimento"
         this.visibleItem=false;
-
+      },
+      (error) => {
+        this.errorAlert.setErrorMessage(error.error);
       }
     );
   }

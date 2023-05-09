@@ -7,7 +7,7 @@ import { User } from '../model/User';
   providedIn: 'root'
 })
 export class UserService {
-  baseurl = "https://thin-death-production.up.railway.app//user"
+  baseurl = "https://thin-death-production.up.railway.app/user"
   constructor(private http:HttpClient) { }
 
   getAllUser(): Observable<User[]>{
