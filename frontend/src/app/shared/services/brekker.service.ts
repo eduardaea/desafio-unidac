@@ -9,7 +9,7 @@ import { CreateUserFood } from '../model/CreateUserFood';
 })
 export class BrekkerService {
   
-  baseurl = "http://localhost:8080/breakfast"
+  baseurl = "https://thin-death-production.up.railway.app//breakfast"
   constructor(private http:HttpClient) { }
 
   getAllBrekker():Observable<Brekker[]>{

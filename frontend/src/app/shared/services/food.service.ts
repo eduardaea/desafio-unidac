@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class FoodsService{
 
-  baseurl = "http://localhost:8080/food"
+  baseurl = "https://thin-death-production.up.railway.app//food"
   constructor(private http:HttpClient) { }
 
   getAllFoods(id: number): Observable<Food[]>{
