@@ -3,45 +3,39 @@
       <thead>
         <tr>
           <th scope="col">Data</th>
-          <th scope="col">Contribuições</th>
-          <th scope="col">Ações</th>
-  
+          <th scope="col" class="th-action">Ações</th>
         </tr>
       </thead>
-      <tbody>
+       <tbody>
         <tr>
-          <td (click)="goBrekker()">22/05/2023</td>
-          <td (click)="goBrekker()">15</td>
+        <tr  *ngFor="let brekker of allBrekker">
+          <td (click)="goBrekker(brekker)">{{brekker.data}}</td> 
           <td class="td-action">
-            <input type="checkbox" id="scales" name="scales">
-            <button class="btn btn-icon"><i class="bi bi-pencil-square"></i></button>
-            <button class="btn btn-icon"><i class="bi bi-trash3-fill"></i></button>
-          </td>
-        </tr>
-        
-        <tr>
-          <td (click)="goBrekker()">28/05/2023</td>
-          <td (click)="goBrekker()">25</td>
-          <td class="td-action">
-            <input type="checkbox" id="scales" name="scales">
-            <button class="btn btn-icon"><i class="bi bi-pencil-square"></i></button>
-            <button class="btn btn-icon"><i class="bi bi-trash3-fill"></i></button>
-          </td>
-        </tr>
-        <tr>
-          <td>30/05/2023</td>
-          <td>2</td>
-          <td class="td-action">
-            <input type="checkbox" id="scales" name="scales">
-            <button class="btn btn-icon"><i class="bi bi-pencil-square"></i></button>
-            <button class="btn btn-icon"><i class="bi bi-trash3-fill"></i></button>
+            <button (click)="modalBrekker(brekker)" class="btn btn-icon" data-bs-toggle="modal" data-bs-target="#modalBrekker"><i class="bi bi-pencil-square"></i></button>
+            <button (click)="deleteBrekker(brekker)" class="btn btn-icon"><i class="bi bi-trash3-fill"></i></button>
           </td>
         </tr>
       </tbody>
     </table>
-    <button class="btn">Ver mais</button>
   </div>
   
+  <div class="modal fade" id="modalBrekker" tabindex="-1" aria-labelledby="updateModalBrekker" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="updateModalBrekker">Alterar Café da manhã</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input class="form-control me-2" type="date" aria-label="date" placeholder="dd/mm/aaaa" [(ngModel)]="editDate">
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="editBrekker()" data-bs-dismiss="modal">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   
  

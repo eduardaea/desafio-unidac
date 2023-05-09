@@ -35,3 +35,6 @@ input[type=checkbox] {
 td{
     cursor: pointer;
 }
+.th-action{
+    text-align: center;
+}

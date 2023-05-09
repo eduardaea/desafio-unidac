@@ -5,7 +5,7 @@ import { BrekkerComponent } from './brekker.component';
 
 const routes: Routes = [
   {
-    path: 'cafe',
+    path: 'cafe/:id',
     component: BrekkerComponent
   }
 ];

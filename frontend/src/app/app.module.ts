@@ -6,6 +6,7 @@ import { HomeModule } from './components/home/home.module';
 import { RouterModule } from '@angular/router';
 import { BrekkerModule } from './components/brekker/brekker.module';
 import { NavBarModule } from './components/navbar/navbar.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { NavBarModule } from './components/navbar/navbar.module';
     HomeModule,
     BrekkerModule,
     RouterModule,
-    NavBarModule
+    NavBarModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
