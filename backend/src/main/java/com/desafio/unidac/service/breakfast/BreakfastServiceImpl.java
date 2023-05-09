@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.desafio.unidac.DTO.BreakFastOutputDTO;
 import com.desafio.unidac.DTO.CreateBreakFastDTO;
+import com.desafio.unidac.DTO.InputUserFoodDTO;
 import com.desafio.unidac.DTO.UserFoodDTO;
 import com.desafio.unidac.entities.BreakFastUserFoodLink;
 import com.desafio.unidac.entities.Breakfast;
@@ -59,6 +60,12 @@ public class BreakfastServiceImpl implements BreakfastService{
         }
 
         return breakfast;
+    }
+
+    @Override
+    public void insertUserFood(InputUserFoodDTO userFoodDto) {
+        BreakFastUserFoodLinkRepository.insertUserFood(userFoodDto.getBreakfast(), userFoodDto.getFoodId(), userFoodDto.getUserId());
+        // TODO CRIAR ERROR QUANDO INSERIR MESMA COMIDA
     }
 
     @Override

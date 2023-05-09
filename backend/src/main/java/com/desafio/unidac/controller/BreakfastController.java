@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.desafio.unidac.DTO.BreakFastOutputDTO;
 import com.desafio.unidac.DTO.CreateBreakFastDTO;
+import com.desafio.unidac.DTO.InputUserFoodDTO;
 import com.desafio.unidac.service.breakfast.BreakfastService;
 
 @Controller
@@ -32,6 +33,12 @@ public class BreakfastController {
     @GetMapping("/{id}")
     public ResponseEntity<BreakFastOutputDTO> getBreakFast(@PathVariable("id") Long id) {
         return ResponseEntity.ok(breakfastService.getBreakfast(id));
+    }
+
+    @PostMapping("/usuario-comida")
+    public ResponseEntity insertUserFood(@RequestBody InputUserFoodDTO userFoodDTO) {
+        breakfastService.insertUserFood(userFoodDTO);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @PostMapping()
