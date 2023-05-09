@@ -11,5 +11,5 @@ public interface BreakfastService {
     BreakFastOutputDTO getBreakfast(Long breakfastId);
     void insertBreakfast(CreateBreakFastDTO breakFastDTO);
     void deleteBreakfast(Long breakFastId);
-    void insertUserFood(InputUserFoodDTO userFoodDto);
+    void insertUserFood(Long breakfastId, InputUserFoodDTO userFoodDto);
 }

@@ -27,6 +27,7 @@ public interface BreakFastUserFoodLinkRepository extends JpaRepository<BreakFast
     @Query(value = "INSERT INTO breakfastuserfoodlink (user_id, food_id, breakfast_id) " +
         "SELECT :userId, :foodId, :breakfastId " +
         "FROM breakfastuserfoodlink " +
-        "WHERE NOT EXISTS (SELECT bfuf.food_id FROM breakfastuserfoodlink bfuf WHERE bfuf.food_id =:foodId)", nativeQuery = true)
+        "WHERE NOT EXISTS (SELECT bfuf.food_id FROM breakfastuserfoodlink bfuf WHERE bfuf.food_id =:foodId and bfuf.breakfast_id = :breakfastId)"
+        , nativeQuery = true)
     int insertUserFood(@Param("breakfastId") Long breakfastId, @Param("foodId") Long foodId, @Param("userId") Long userId);
 }

@@ -63,8 +63,8 @@ public class BreakfastServiceImpl implements BreakfastService{
     }
 
     @Override
-    public void insertUserFood(InputUserFoodDTO userFoodDto) {
-        BreakFastUserFoodLinkRepository.insertUserFood(userFoodDto.getBreakfast(), userFoodDto.getFoodId(), userFoodDto.getUserId());
+    public void insertUserFood(Long breakfastId, InputUserFoodDTO userFoodDto) {
+        BreakFastUserFoodLinkRepository.insertUserFood(breakfastId, userFoodDto.getFoodId(), userFoodDto.getUserId());
         // TODO CRIAR ERROR QUANDO INSERIR MESMA COMIDA
     }
 

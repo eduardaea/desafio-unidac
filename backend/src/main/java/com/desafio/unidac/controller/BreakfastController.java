@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -37,9 +38,9 @@ public class BreakfastController {
         return ResponseEntity.ok(breakfastService.getBreakfast(id));
     }
 
-    @PostMapping("/usuario-comida")
-    public ResponseEntity insertUserFood(@RequestBody InputUserFoodDTO userFoodDTO) {
-        breakfastService.insertUserFood(userFoodDTO);
+    @PostMapping("/usuario-comida/{id}")
+    public ResponseEntity insertUserFood(@RequestBody InputUserFoodDTO userFoodDTO, @PathVariable("id") Long breakfastId) {
+        breakfastService.insertUserFood(breakfastId, userFoodDTO);
         return new ResponseEntity(HttpStatus.OK);
     }
 
