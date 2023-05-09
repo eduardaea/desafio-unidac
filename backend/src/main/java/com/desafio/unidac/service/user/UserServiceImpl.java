@@ -30,8 +30,12 @@ public class UserServiceImpl implements UserService {
     }
     
     @Override
-    public void insertUser(CreateUserDTO userDTO) {
-        userRepository.insertUser(userDTO.getNome(), userDTO.getCpf());
+    public void insertUser(CreateUserDTO userDTO) throws Exception {
+        int inserted = userRepository.insertUser(userDTO.getNome(), userDTO.getCpf());
+
+        if (inserted == 0) {
+            throw new Exception("Já existe um usuário com esse cpf");
+        }
     }
 
     @Override

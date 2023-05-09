@@ -40,8 +40,12 @@ public class BreakfastController {
 
     @PostMapping("/usuario-comida/{id}")
     public ResponseEntity insertUserFood(@RequestBody InputUserFoodDTO userFoodDTO, @PathVariable("id") Long breakfastId) {
-        breakfastService.insertUserFood(breakfastId, userFoodDTO);
-        return new ResponseEntity(HttpStatus.OK);
+        try {
+            breakfastService.insertUserFood(breakfastId, userFoodDTO);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (Exception error) {
+            return new ResponseEntity(error.getMessage(), HttpStatus.CONFLICT);
+        } 
     }
 
     @PostMapping()

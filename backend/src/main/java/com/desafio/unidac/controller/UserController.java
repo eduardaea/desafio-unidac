@@ -3,6 +3,7 @@ package com.desafio.unidac.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,17 +36,24 @@ public class UserController {
     }
 
     @PostMapping()
-    public void insertUser(@RequestBody CreateUserDTO userDTO) {
-        userService.insertUser(userDTO);
+    public ResponseEntity insertUser(@RequestBody CreateUserDTO userDTO) {
+        try {
+            userService.insertUser(userDTO);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (Exception error) {
+            return new ResponseEntity(error.getMessage(), HttpStatus.CONFLICT);
+        } 
     }
 
     @PutMapping("/{id}")
-    public void updateUser(@RequestBody CreateUserDTO userDTO, @PathVariable("id") Long id){
+    public ResponseEntity updateUser(@RequestBody CreateUserDTO userDTO, @PathVariable("id") Long id){
         userService.updateUser(userDTO, id);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable("id") Long id) {
+    public ResponseEntity deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
